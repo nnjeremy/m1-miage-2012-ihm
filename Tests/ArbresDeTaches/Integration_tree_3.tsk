@@ -1,0 +1,38 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="InterleavingOperator" id="Parallele_1" name="Parallele 1" configuration="is_optional 0 is_iterative 0">
+  <Task_operator CT_class="NoOrderOperator" id="SansOrdre_1" name="SansOrdre 1" configuration="is_optional 0 is_iterative 0">
+    <Task CT_class="Task" id="Tache_1" name="Tache 1" configuration="is_optional 1 is_iterative 0" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_2" name="Tache 2" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  </Task_operator>
+  <Task CT_class="Task" id="Tache_3" name="Tache 3" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task_operator CT_class="ChoiceOperator" id="Choix_1" name="Choix 1" configuration="is_optional 0 is_iterative 1">
+    <Task CT_class="Task" id="Tache_4" name="Tache 4" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_5" name="Tache 5" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  </Task_operator>
+  <Task CT_class="Task" id="Tache_6" name="Tache 6" configuration="is_optional 1 is_iterative 0" L_concepts=""></Task>
+  <Task_operator CT_class="SequenceOperator" id="Sequence_1" name="Sequence 1" configuration="is_optional 0 is_iterative 1">
+    <Task CT_class="Task" id="Tache_7" name="Tache 7" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_8" name="Tache 8" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_9" name="Tache 9" configuration="is_optional 1 is_iterative 0" L_concepts=""></Task>
+  </Task_operator>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_Parallele_1 Move_to="190 35"></TK_representation_of_Parallele_1>
+  <TK_representation_of_SansOrdre_1 Move_to="49 151"></TK_representation_of_SansOrdre_1>
+  <TK_representation_of_Choix_1 Move_to="226 147"></TK_representation_of_Choix_1>
+  <TK_representation_of_Tache_3 Move_to="140 161"></TK_representation_of_Tache_3>
+  <TK_representation_of_Tache_1 Move_to="7 247"></TK_representation_of_Tache_1>
+  <TK_representation_of_Tache_2 Move_to="107 248"></TK_representation_of_Tache_2>
+  <TK_representation_of_Sequence_1 Move_to="428 150"></TK_representation_of_Sequence_1>
+  <TK_representation_of_Tache_6 Move_to="328 157"></TK_representation_of_Tache_6>
+  <TK_representation_of_Tache_7 Move_to="375 261"></TK_representation_of_Tache_7>
+  <TK_representation_of_Tache_8 Move_to="458 261"></TK_representation_of_Tache_8>
+  <TK_representation_of_Tache_9 Move_to="562 260"></TK_representation_of_Tache_9>
+  <TK_representation_of_Tache_4 Move_to="195 257"></TK_representation_of_Tache_4>
+  <TK_representation_of_Tache_5 Move_to="286 256"></TK_representation_of_Tache_5>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

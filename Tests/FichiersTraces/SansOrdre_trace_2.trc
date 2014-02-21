@@ -1,0 +1,33 @@
+ <traces>
+	<!-- Au début, toutes les tâches doivent être disponibles -->
+	<assert task="SansOrdre_1" type="Availability" parameter="1" comment="L'opérateur est disponible"/>
+    <assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1 est disponible"/>
+	<assert task="SansOrdre_2" type="Availability" parameter="1" comment="Le sansOrdre 2, sous-tache du SansOrdre 1 est disponible"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tâche 2, sous-taches du SansOrdre 2 est disponible"/>
+    <assert task="Tache_3" type="Availability" parameter="1" comment="La tâche 3, sous-taches du SansOrdre 2 est disponible"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1 est disponible"/>
+	
+    <action task="Tache_3" operation="set_state_Done" comment="On termine la tâche n°3"/>
+	<assert task="SansOrdre_2" type="State" parameter="1 WIP" comment="L'opérateur est en cours de réalisation"/>
+    <assert task="Tache_1" type="Availability" parameter="0" comment="La tâche 1 n'est pas disponible pour le moment car une autre sous tâche est en cours de réalisation"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tâche 2 devient disponible"/>
+    <assert task="Tache_4" type="Availability" parameter="0" comment="La tâche 4 n'est pas disponible pour le moment car une autre sous tâche est en cours de réalisation"/>
+	
+	<action task="Tache_2" operation="set_state_Done" comment="On termine la tâche n°2"/>
+	<assert task="SansOrdre_2" type="State" parameter="1 Done" comment="Toutes les sous-taches ont été réalisée: Le SansOrdre 2 est terminé"/>
+    <assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1 devient disponible"/>
+    <assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4 devient disponible"/>
+	
+	<action task="Tache_1" operation="set_state_WIP" comment="La tache 1 est en cours de réalisation"/>
+    <assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1 reste disponible"/>
+    <assert task="Tache_4" type="Availability" parameter="0" comment="La tâche 4 reste indisponible"/>
+	
+	<action task="Tache_1" operation="set_state_Done" comment="On termine la tache 1"/>
+    <assert task="Tache_1" type="Availability" parameter="0" comment="La tâche 1 n'est plus disponible"/>
+    <assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4 devient disponible"/>
+	
+	<action task="Tache_4" operation="set_state_Done" comment="On termine la tache 4"/>
+    <assert task="Tache_4" type="Availability" parameter="0" comment="La tâche 4 devient indisponible"/>
+	<assert task="SansOrdre_1" type="State" parameter="1 Done" comment="Toutes les sous-taches ont été réalisée: Le SansOrdre 1 est terminé"/>
+	
+ </traces>

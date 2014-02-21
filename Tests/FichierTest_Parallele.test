@@ -1,0 +1,24 @@
+<test name="Fichier de test pour l'operateur Entrelacement">
+
+	<!-- Cas simple, basic, sur 1 niveau -->
+	<task_tree>ArbresDeTaches/Parallele_tree_1.tsk</task_tree>
+    <traces>FichiersTraces/Parallele_trace_1.trc</traces>
+	
+	<!-- Cas simple, basic, sur 2 niveaux -->
+	<task_tree>ArbresDeTaches/Parallele_tree_2.tsk</task_tree>
+    <traces>FichiersTraces/Parallele_trace_2.trc</traces>
+	
+	<!-- Cas complexe, sur 2 niveaux (1ere execution) -->
+	<task_tree>ArbresDeTaches/Parallele_tree_3.tsk</task_tree>
+    <traces>FichiersTraces/Parallele_trace_3.trc</traces>
+	
+	<!-- Cas complexe, sur 2 niveaux (2eme execution) -->
+	<task_tree>ArbresDeTaches/Parallele_tree_3.tsk</task_tree>
+    <traces>FichiersTraces/Parallele_trace_5.trc</traces>
+	
+	<!-- Cas complexe, sur 3 niveaux -->
+	<task_tree>ArbresDeTaches/Parallele_tree_4.tsk</task_tree>
+    <traces>FichiersTraces/Parallele_trace_4.trc</traces>
+	
+	
+</test>

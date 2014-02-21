@@ -1,0 +1,20 @@
+<test name="Fichier de test concernant l'ensemble des tests d'intégration">
+
+	<!-- Cas simple, mettant en scène 2 opérateurs: Choix + Entrelacement (Codé par le groupe composé de VASCHALDE Rudy et MICHEL Rémi) -->
+	<task_tree>ArbresDeTaches/Integration_tree_1.tsk</task_tree>
+    <traces>FichiersTraces/Integration_trace_1.trc</traces>
+	
+	<!-- Cas simple, mettant en scène 2 opérateurs: Séquence + Sans Ordre (Codé par le groupe composé de NICOLAS Jérémy et BELKHAYAT Soumaya) -->
+	<task_tree>ArbresDeTaches/Integration_tree_2.tsk</task_tree>
+    <traces>FichiersTraces/Integration_trace_2.trc</traces>
+	
+	<!-- Cas plus complexe mettant en scène tous les opérateurs (2 niveaux)-->
+	<task_tree>ArbresDeTaches/Integration_tree_3.tsk</task_tree>
+    <traces>FichiersTraces/Integration_trace_3.trc</traces>
+	
+	<!-- Cas plus complexe mettant en scène tous les opérateurs (3 niveaux) -->
+	<task_tree>ArbresDeTaches/Integration_tree_4.tsk</task_tree>
+    <traces>FichiersTraces/Integration_trace_4.trc</traces>
+	
+	
+</test>

@@ -1,0 +1,60 @@
+ <traces>
+	<!-- Toutes les taches doivent être disponibles -->
+	<assert task="Parallele_1" type="Availability" parameter="1" comment="L'opérateur Parallele 1 est disponible"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tache 1 est disponible"/>
+	<assert task="Parallele_2" type="Availability" parameter="1" comment="L'opérateur Parallele 2 est disponible"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tache 2, sous tache de Parallele 2 est disponible"/>
+    <assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3, sous tache de Parallele 2 est disponible"/>
+	<assert task="Parallele_3" type="Availability" parameter="1" comment="L'opérateur Parallele 3 est disponible"/>
+	<assert task="Parallele_4" type="Availability" parameter="1" comment="L'opérateur Parallele 4, sous tache de Parallele 3 est disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tache 4, sous tache de Parallele 3 est disponible"/>
+	<assert task="Tache_5" type="Availability" parameter="1" comment="La tache 5, sous tache de Parallele 4 est disponible"/>
+	<assert task="Tache_6" type="Availability" parameter="1" comment="La tache 6, sous tache de Parallele 4 est disponible"/>
+	<assert task="Tache_7" type="Availability" parameter="1" comment="La tache 7 est disponible"/>
+	
+	<action task="Tache_7" operation="set_state_Done" comment="On termine la tâche n°7"/>
+	<assert task="Parallele_1" type="State" parameter="1 WIP" comment="Parallele 1 est en cours de réalisation"/>
+	<assert task="Tache_7" type="Availability" parameter="1" comment="La tache 7 reste disponible car itérative"/>
+	
+	<action task="Tache_4" operation="set_state_Done" comment="On termine la tâche n°4"/>
+	<assert task="Parallele_3" type="State" parameter="1 WIP" comment="Parallele 3 est en cours de réalisation"/>
+	
+	<action task="Tache_2" operation="set_state_Done" comment="On termine la tâche n°2"/>
+	<assert task="Parallele_2" type="State" parameter="1 WIP" comment="Parallele 2 est en cours de réalisation"/>
+	
+	<action task="Tache_5" operation="set_state_Done" comment="On termine la tâche n°5"/>
+	<assert task="Parallele_4" type="State" parameter="1 WIP" comment="Parallele 4 est en cours de réalisation"/>
+	<assert task="Tache_5" type="Availability" parameter="1" comment="La tache 5 reste disponible car itérative"/>
+	
+	<action task="Tache_6" operation="set_state_Done" comment="On termine la tâche n°6"/>
+	<assert task="Tache_6" type="Availability" parameter="1" comment="La tache 6 reste disponible car itérative"/>
+	<assert task="Parallele_4" type="State" parameter="1 WIP" comment="Parallele 4 reste en cours de réalisation car ses sous-taches sont itératives"/>
+	
+	<action task="Tache_5" operation="set_state_Done" comment="On termine à nouveau la tâche n°5"/>
+	<!-- On est obligé de terminer EXPLICITEMENT Parallele 4 -->
+	<action task="Parallele_4" operation="set_state_Done" comment="On termine EXPLICITEMENT Parallele 4"/>
+	<!-- L'ensemble de ses sous-taches ne peuvent donc plus être refaites -->
+	<assert task="Tache_5" type="Availability" parameter="0" comment="La tache 5 devient alors indisponible"/>
+	<assert task="Tache_6" type="Availability" parameter="0" comment="La tache 6 devient aussi indisponible"/>
+	<assert task="Parallele_4" type="Availability" parameter="1" comment="Parallele 4 reste disponible car itérative"/>
+	<assert task="Parallele_3" type="State" parameter="1 WIP" comment="Parallele 3 reste en cours de réalisation puisqu'une de ses sous-taches est itérative"/>
+	
+	<action task="Parallele_3" operation="set_state_Done" comment="On termine EXPLICITEMENT Parallele 3"/>
+	<assert task="Tache_4" type="Availability" parameter="0" comment="La tache 4 devient indisponible"/>
+	<assert task="Parallele_4" type="Availability" parameter="0" comment="Parallele 4 devient indisponible"/>
+	
+	<action task="Parallele_2" operation="set_state_Done" comment="On termine EXPLICITEMENT Parallele 2"/>
+	<!-- Nous n'avions fait que la tache 2. La tache 3 étant optionelle, on peut mettre fin à Parallele 2 explicitement -->
+	<assert task="Tache_2" type="Availability" parameter="0" comment="La tache 2 devient indisponible"/>
+	<assert task="Tache_3" type="Availability" parameter="0" comment="La tache 3 devient indisponible"/>
+	
+	<action task="Parallele_1" operation="set_state_Done" comment="On termine EXPLICITEMENT Parallele 1"/>
+	<!-- L'ensemble de ses sous-taches ont été réalisées sauf la Tache 1 qui est optionnelle -->
+	<assert task="Tache_1" type="Availability" parameter="0" comment="La tache 1 devient indisponible"/>
+	<assert task="Parallele_2" type="Availability" parameter="0" comment="L'opérateur Parallele 2 est indisponible"/>
+	<assert task="Parallele_3" type="Availability" parameter="0" comment="L'opérateur Parallele 3 est indisponible"/>
+	<assert task="Tache_1" type="Availability" parameter="0" comment="La tache 7 devient indisponible"/>
+	
+	
+	
+ </traces>

@@ -1,0 +1,29 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="SequenceOperator" id="Sequence_1" name="Sequence 1" configuration="is_optional 0 is_iterative 0">
+  <Task CT_class="Task" id="Tache_1" name="Tache 1" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task_operator CT_class="NoOrderOperator" id="SansOrdre_1" name="SansOrdre 1" configuration="is_optional 0 is_iterative 0">
+    <Task CT_class="Task" id="Tache_2" name="Tache 2" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_3" name="Tache 3" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  </Task_operator>
+  <Task_operator CT_class="SequenceOperator" id="Sequence_2" name="Sequence 2" configuration="is_optional 0 is_iterative 0">
+    <Task CT_class="Task" id="Tache_4" name="Tache 4" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_5" name="Tache 5" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  </Task_operator>
+  <Task CT_class="Task" id="Tache_6" name="Tache 6" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_Sequence_1 Move_to="224 36"></TK_representation_of_Sequence_1>
+  <TK_representation_of_Tache_1 Move_to="56 164"></TK_representation_of_Tache_1>
+  <TK_representation_of_SansOrdre_1 Move_to="188 152"></TK_representation_of_SansOrdre_1>
+  <TK_representation_of_Sequence_2 Move_to="318 154"></TK_representation_of_Sequence_2>
+  <TK_representation_of_Tache_6 Move_to="437 159"></TK_representation_of_Tache_6>
+  <TK_representation_of_Tache_2 Move_to="122 287"></TK_representation_of_Tache_2>
+  <TK_representation_of_Tache_3 Move_to="210 287"></TK_representation_of_Tache_3>
+  <TK_representation_of_Tache_4 Move_to="307 286"></TK_representation_of_Tache_4>
+  <TK_representation_of_Tache_5 Move_to="418 286"></TK_representation_of_Tache_5>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

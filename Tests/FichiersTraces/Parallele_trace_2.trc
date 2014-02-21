@@ -1,0 +1,30 @@
+ <traces>
+	<!-- Toutes les taches doivent être disponibles -->
+	<assert task="Parallele_1" type="Availability" parameter="1" comment="L'opérateur est disponible"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tache 1 est disponible"/>
+	<assert task="Parallele_2" type="Availability" parameter="1" comment="L'opérateur Parallele 1 est disponible"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tache 2 est disponible"/>
+    <assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3 est disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tache 4 est disponible"/>
+	
+    <action task="Tache_2" operation="set_state_WIP" comment="La tache 2 est en cours de réalisation"/>
+	<assert task="Parallele_2" type="State" parameter="1 WIP" comment="L'opérateur Parallele 2 est en cours de réalisation"/>
+	<!-- Les autres taches sont disponibles -->
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tache 1 est disponible"/>
+    <assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3 est disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tache 4 est disponible"/>
+	
+	<action task="Tache_4" operation="set_state_Done" comment="On termine la tache 4"/>
+	<!-- Les autres taches restent disponibles -->
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tache 1 reste disponible"/>
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3 reste disponible"/>
+	
+	<action task="Tache_1" operation="set_state_Done" comment="On termine la tache 1"/>
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3 reste disponible"/>
+	
+	<action task="Tache_3" operation="set_state_Done" comment="On termine la tache 3"/>
+	<action task="Tache_2" operation="set_state_Done" comment="On termine la tache 2"/>
+	<assert task="Parallele_2" type="State" parameter="1 Done" comment="Toutes les sous-taches de Parallele 2 ont été réalisées : L'opérateur devient DONE IMPLICITEMENT"/>
+	<assert task="Parallele_1" type="State" parameter="1 Done" comment="Toutes les sous-taches de Parallele 1 ont été réalisées : L'opérateur devient DONE IMPLICITEMENT"/>
+	
+ </traces>

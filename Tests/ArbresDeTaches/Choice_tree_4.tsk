@@ -1,0 +1,25 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="ChoiceOperator" id="Choix_1" name="Choix 1" configuration="is_optional 0 is_iterative 0">
+  <Task CT_class="Task" id="Tache_1" name="Tache 1" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task_operator CT_class="ChoiceOperator" id="Choix_2" name="Choix 2" configuration="is_optional 0 is_iterative 1">
+    <Task CT_class="Task" id="Tache_2" name="Tache 2" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+    <Task_operator CT_class="ChoiceOperator" id="Choix_3" name="Choix 3" configuration="is_optional 0 is_iterative 1">
+      <Task CT_class="Task" id="Tache_3" name="Tache 3" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+      <Task CT_class="Task" id="Tache_4" name="Tache 4" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+    </Task_operator>
+  </Task_operator>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_Choix_1 Move_to="165 20"></TK_representation_of_Choix_1>
+  <TK_representation_of_Tache_1 Move_to="78 99"></TK_representation_of_Tache_1>
+  <TK_representation_of_Choix_2 Move_to="215 94"></TK_representation_of_Choix_2>
+  <TK_representation_of_Tache_2 Move_to="117 181"></TK_representation_of_Tache_2>
+  <TK_representation_of_Choix_3 Move_to="251 174"></TK_representation_of_Choix_3>
+  <TK_representation_of_Tache_3 Move_to="219 262"></TK_representation_of_Tache_3>
+  <TK_representation_of_Tache_4 Move_to="323 261"></TK_representation_of_Tache_4>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

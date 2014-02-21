@@ -1,0 +1,19 @@
+<test name="Fichier de test pour l'operateur Sans-ordre">
+
+	<!-- Cas simple, basic, sur 1 niveau -->
+	<task_tree>ArbresDeTaches/SansOrdre_tree_1.tsk</task_tree>
+    <traces>FichiersTraces/SansOrdre_trace_1.trc</traces>
+	
+	<!-- Cas simple, sur 2 niveaux -->
+	<task_tree>ArbresDeTaches/SansOrdre_tree_2.tsk</task_tree>
+    <traces>FichiersTraces/SansOrdre_trace_2.trc</traces>
+	
+	<!-- Cas plus complexe sur 2 niveaux -->
+	<task_tree>ArbresDeTaches/SansOrdre_tree_3.tsk</task_tree>
+    <traces>FichiersTraces/SansOrdre_trace_3.trc</traces>
+	
+	<!-- Cas plus complexe sur 3 niveaux -->
+	<task_tree>ArbresDeTaches/SansOrdre_tree_4.tsk</task_tree>
+    <traces>FichiersTraces/SansOrdre_trace_4.trc</traces>
+
+</test>

@@ -1,0 +1,15 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="SequenceOperator" id="OBJ_1" name="Name" configuration="is_optional 0 is_iterative 0">
+  <Task CT_class="Task" id="OBJ_2" name="USER" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task CT_class="Task" id="OBJ_3" name="USER" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_OBJ_1 Move_to="294 127"></TK_representation_of_OBJ_1>
+  <TK_representation_of_OBJ_2 Move_to="195 294"></TK_representation_of_OBJ_2>
+  <TK_representation_of_OBJ_3 Move_to="376 292"></TK_representation_of_OBJ_3>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

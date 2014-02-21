@@ -1,0 +1,8 @@
+ <traces>
+    <action task="Tache_1" operation="set_state_Done" comment="On réalise la tâche 1"/>
+	<assert task="Choix_1" type="State" parameter="1 Done" comment="Le Choix est terminé"/>
+    <assert task="Choix_1" type="Availability" parameter="0" comment="Il n'y a pas possibilité de recommencer une sous-tâche"/>
+    <assert task="Choix_2" type="Availability" parameter="0" comment="Le Choix 2 n'est plus disponible"/>
+    <assert task="Tache_2" type="Availability" parameter="0" comment="La tâche 2 n'est plus disponible"/>
+    <assert task="Tache_3" type="Availability" parameter="0" comment="La tâche 3 n'est plus disponible"/>
+ </traces>

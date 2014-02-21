@@ -1,0 +1,75 @@
+ <traces>
+	<!-- Au début, toutes les sous-taches doivent être diponibles -->
+	<assert task="Parallele_1" type="Availability" parameter="1" comment="L'opérateur est disponible"/>
+    <assert task="SansOrdre_1" type="Availability" parameter="1" comment="La tâche 1 est disponible"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1, sous-tache du SansOrdre 1 est disponible"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tâche 2, sous-tache du SansOrdre 1 est disponible"/>
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tâche 3 est disponible"/>
+	<assert task="Choix_1" type="Availability" parameter="1" comment="Le Choix 1 est disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4, sous-tache du Choix 1 est disponible"/>
+	<assert task="Tache_5" type="Availability" parameter="1" comment="La tâche 5, sous-taches du Choix 1 est disponible"/>
+    <assert task="Tache_6" type="Availability" parameter="1" comment="La tâche 6, est disponible"/>
+	<assert task="Sequence_1" type="Availability" parameter="1" comment="La séquence 1 est disponible"/>
+	<assert task="Tache_7" type="Availability" parameter="1" comment="La tâche 7, 1ere sous-tache de la séquence 1 est disponible"/>
+	<assert task="Tache_8" type="Availability" parameter="0" comment="La tâche 8, sous-tache de la séquence 1 est indisponible"/>
+	<assert task="Tache_9" type="Availability" parameter="0" comment="La tâche 9, sous-tache de la séquence 1 est indisponible"/>
+	
+	<action task="Tache_2" operation="set_state_Done" comment="On termine la tâche n°2"/>
+	<assert task="Tache_2" type="Availability" parameter="0" comment="La tâche 2, n'est plus disponible"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1, est disponible"/>
+	
+	<!-- La tache 1 étant optionnelle, on peut terminer explicitement le SansORdre 1 -->
+	<action task="SansOrdre_1" operation="set_state_Done" comment="On termine EXPLICITEMENT SansOrdre 1"/>	
+	<assert task="Tache_1" type="Availability" parameter="0" comment="La tâche 1, n'est plus disponible"/>	
+	
+	<action task="Tache_5" operation="set_state_Done" comment="On termine la tache 5"/>	
+	<assert task="Choix_1" type="State" parameter="1 Done" comment="Le Choix 1 passe IMPLICITEMENT à DONE"/>
+	<assert task="Choix_1" type="Availability" parameter="1" comment="Le Choix 1 reste disponible car itératif"/>
+	<!-- Aucune sous tache n'est dispo: Il faudrait relancer explicitement le Choix 1 -->
+	<assert task="Tache_4" type="Availability" parameter="0" comment="La tâche 4, n'est plus disponible"/>	
+	<assert task="Tache_5" type="Availability" parameter="0" comment="La tâche 5, n'est plus disponible"/>	
+
+	<action task="Tache_6" operation="set_state_WIP" comment="La Tache 6 est en cours de réalisation"/>	
+	<action task="Tache_7" operation="set_state_Done" comment="On termine la tache 7"/>	
+	<assert task="Sequence_1" type="State" parameter="1 WIP" comment="La sequence 1 est en cours de réalisation"/>
+	<assert task="Tache_7" type="Availability" parameter="0" comment="La tâche 7, n'est plus disponible"/>	
+	<assert task="Tache_8" type="Availability" parameter="1" comment="La tâche 8 devient disponible"/>	
+	
+	<action task="Choix_1" operation="set_state_WIP" comment="On relance EXPLICITEMENT le Choix 1"/>	
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4, redevient disponible"/>	
+	<assert task="Tache_5" type="Availability" parameter="1" comment="La tâche 5, redevient disponible"/>
+	
+	<action task="Tache_4" operation="set_state_Done" comment="On termine la tache 4"/>	
+	<assert task="Choix_1" type="State" parameter="1 Done" comment="Le Choix 1 passe IMPLICITEMENT à DONE"/>
+	
+	<action task="Tache_6" operation="set_state_Done" comment="On termine la tache 6"/>	
+	
+	<action task="Tache_8" operation="set_state_Done" comment="On termine la tache 8"/>	
+	<assert task="Tache_9" type="Availability" parameter="1" comment="La tache 9 devient disponible"/>
+	<assert task="Tache_8" type="Availability" parameter="0" comment="La tache 8 devient indisponible"/>	
+	
+	<action task="Sequence_1" operation="set_state_Done" comment="On termine explicitement la Sequence 1"/>	
+	<assert task="Sequence_1" type="Availability" parameter="1" comment="La Sequence 1 reste disponible car itérative"/>	
+	
+	<action task="Tache_3" operation="set_state_Done" comment="On termine la tache 3"/>	
+	
+	<action task="Sequence_1" operation="set_state_WIP" comment="On relance EXPLICITEMENT la Sequence 1"/>	
+	<assert task="Tache_7" type="Availability" parameter="1" comment="La tache 7 devient disponible"/>
+	<assert task="Tache_8" type="Availability" parameter="0" comment="La tache 8 est indisponible"/>
+	<assert task="Tache_9" type="Availability" parameter="0" comment="La tache 9 est indisponible"/>
+	
+	<action task="Tache_7" operation="set_state_Done" comment="On termine la tache 7"/>	
+	<assert task="Tache_8" type="Availability" parameter="1" comment="La tache 8 devient disponible"/>
+	
+	<action task="Tache_8" operation="set_state_Done" comment="On termine la tache 8"/>		
+	<assert task="Tache_8" type="Availability" parameter="0" comment="La tache 8 devient indisponible"/>
+	<assert task="Tache_9" type="Availability" parameter="1" comment="La tache 9 devient disponible"/>
+	
+	<action task="Tache_9" operation="set_state_Done" comment="On termine la tache 9"/>		
+	<assert task="Sequence_1" type="State" parameter="1 Done" comment="La Sequence 1 passe implicitement à Done car toutes les sous-taches ont été réalisées"/>
+	<assert task="Sequence_1" type="Availability" parameter="1" comment="La sequence 1 reste dispo car itérative"/>
+	
+	<action task="Parallele_1" operation="set_state_Done" comment="On termine EXPLICITEMENT Parallele 1"/>	
+	<assert task="Parallele_1" type="Availability" parameter="0" comment="L'opérateur n'est plus disponible"/>		
+	
+ </traces>

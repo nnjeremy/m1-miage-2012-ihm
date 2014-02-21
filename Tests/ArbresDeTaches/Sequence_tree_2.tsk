@@ -1,0 +1,20 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="SequenceOperator" id="Sequence_1" name="Sequence 1" configuration="is_optional 0 is_iterative 0">
+  <Task CT_class="Task" id="Tache_1" name="Tache 1" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task_operator CT_class="SequenceOperator" id="Sequence_2" name="Sequence 2" configuration="is_optional 0 is_iterative 0">
+    <Task CT_class="Task" id="Tache_2" name="Tache 2" configuration="is_optional 1 is_iterative 0" L_concepts=""></Task>
+    <Task CT_class="Task" id="Tache_3" name="Tache 3" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+  </Task_operator>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_Sequence_1 Move_to="155 28"></TK_representation_of_Sequence_1>
+  <TK_representation_of_Tache_1 Move_to="82 130"></TK_representation_of_Tache_1>
+  <TK_representation_of_Tache_2 Move_to="158 213"></TK_representation_of_Tache_2>
+  <TK_representation_of_Sequence_2 Move_to="245 122"></TK_representation_of_Sequence_2>
+  <TK_representation_of_Tache_3 Move_to="276 213"></TK_representation_of_Tache_3>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

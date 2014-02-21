@@ -1,0 +1,44 @@
+ <traces>
+	<!-- Au début toutes les tâches sont disponibles -->
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1 est disponible"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tâche 2 est disponible"/>
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tâche 3 est disponible"/>
+	<assert task="Choix_2" type="Availability" parameter="1" comment="Choix 2 = Sous-tâche du Choix 1 => Disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4 est disponible"/>
+	
+	<!-- On choisit de réaliser le choix 2 -->
+	<action task="Choix_2" operation="set_state_WIP" comment="Le choix 2 est en cours de réalisation"/>
+	<assert task="Tache_1" type="Availability" parameter="0" comment="Tâche 1 = Sous-Tâche du choix 1 = Tâche non dispo"/>
+	<assert task="Tache_2" type="Availability" parameter="0" comment="Tâche 2 = Sous-Tâche du choix 1 = Tâche non dispo"/>
+	
+	<action task="Tache_4" operation="set_state_WIP" comment="Tache 4 en cours de réalisation Tâche 4 = Sous-Tâche du choix 2"/>
+	<assert task="Tache_3" type="Availability" parameter="0" comment="Tâche 3 = Sous-Tâche du choix 2 = Tâche non dispo"/>
+	
+	<action task="Tache_4" operation="set_state_Done" comment="On termine la tâche 4"/>
+	<assert task="Choix_2" type="State" parameter="1 WIP" comment="Le choix 2 reste en cours de réalisation car la tâche 4 est iterative"/>
+	<assert task="Choix_2" type="Availability" parameter="1" comment="Le choix 2 reste donc disponible"/>
+	<assert task="Choix_1" type="State" parameter="1 WIP" comment="Le choix 1 reste en cours de réalisation "/>
+	<assert task="Tache_3" type="Availability" parameter="0" comment="La tache 3 n'est cependant pas disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4 reste disponible car itérative"/>
+	<action task="Tache_4" operation="set_state_Done" comment="On termine à nouveau la tâche 4"/>
+	<action task="Choix_2" operation="set_state_Done" comment="On termine EXPLICITEMENT le choix 2"/>
+	<assert task="Choix_2" type="Availability" parameter="0" comment="Le choix 2 n'est donc plus disponible"/>
+	<assert task="Choix_1" type="State" parameter="1 Done" comment="Toutes les sous-taches du choix 1 ont été réalisées et aucune n'est itérative : son état passe donc à DONE"/>
+	<assert task="Choix_1" type="Availability" parameter="1" comment="Le choix 1  étant lui même itératif, il est possible de le relancer: Il reste donc disponible"/>
+	
+	<!-- Il faut explicitement relancer la tâche pour que les enfants puissent recommencer -->
+	<action task="Choix_1" operation="set_state_WIP" comment="On relance EXPLICITEMENT le choix 1"/> 
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La tâche 1 est disponible"/>
+	<assert task="Tache_2" type="Availability" parameter="1" comment="La tâche 2 est disponible"/>
+	<assert task="Choix_2" type="Availability" parameter="1" comment="Le choix 2 est disponible"/>
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tâche 3 est disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="1" comment="La tâche 4 est disponible"/>
+	
+	<action task="Tache_1" operation="set_state_Done" comment="On termine la tâche 1"/>
+	<assert task="Tache_2" type="Availability" parameter="0" comment="La tâche 2 n'est donc plus disponible"/>
+	<assert task="Tache_3" type="Availability" parameter="0" comment="La tâche 3 n'est donc plus disponible"/>
+	<assert task="Choix_2" type="Availability" parameter="0" comment="Le Choix 2 n'est donc plus disponible"/>
+	<assert task="Tache_4" type="Availability" parameter="0" comment="La tâche 4 n'est donc plus disponible"/>
+	<assert task="Choix_1" type="State" parameter="1 Done" comment="Le choix 1 se termine aussi"/>
+	<assert task="Choix_1" type="Availability" parameter="1" comment="Choix 1 reste dispo car itératif"/>
+ </traces>

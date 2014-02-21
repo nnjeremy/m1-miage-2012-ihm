@@ -1,0 +1,27 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="NoOrderOperator" id="SansOrdre_1" name="SansOrdre 1" configuration="is_optional 0 is_iterative 1">
+  <Task CT_class="Task" id="Tache_1" name="Tache 1" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task_operator CT_class="NoOrderOperator" id="SansOrdre_2" name="SansOrdre 2" configuration="is_optional 0 is_iterative 0">
+    <Task CT_class="Task" id="Tache_2" name="Tache 2" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+    <Task_operator CT_class="NoOrderOperator" id="SansOrdre_3" name="SansOrdre 3" configuration="is_optional 1 is_iterative 0">
+      <Task CT_class="Task" id="Tache_3" name="Tache 3" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+      <Task CT_class="Task" id="Tache_4" name="Tache 4" configuration="is_optional 0 is_iterative 1" L_concepts=""></Task>
+    </Task_operator>
+  </Task_operator>
+  <Task CT_class="Task" id="Tache_5" name="Tache 5" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_SansOrdre_1 Move_to="187 16"></TK_representation_of_SansOrdre_1>
+  <TK_representation_of_SansOrdre_2 Move_to="191 132"></TK_representation_of_SansOrdre_2>
+  <TK_representation_of_Tache_1 Move_to="51 177"></TK_representation_of_Tache_1>
+  <TK_representation_of_Tache_5 Move_to="345 177"></TK_representation_of_Tache_5>
+  <TK_representation_of_SansOrdre_3 Move_to="272 247"></TK_representation_of_SansOrdre_3>
+  <TK_representation_of_Tache_2 Move_to="132 261"></TK_representation_of_Tache_2>
+  <TK_representation_of_Tache_3 Move_to="218 391"></TK_representation_of_Tache_3>
+  <TK_representation_of_Tache_4 Move_to="355 392"></TK_representation_of_Tache_4>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

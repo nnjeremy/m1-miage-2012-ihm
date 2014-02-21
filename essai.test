@@ -1,0 +1,8 @@
+<test name="A set of test just to test...">
+	<task_tree>essai.tsk</task_tree>
+	<traces>essai.trc</traces>
+	<traces>essai2.trc</traces>
+	<task_tree>essai.tsk</task_tree>
+	<traces>essai.trc</traces>
+	<traces>essai2.trc</traces>
+</test>

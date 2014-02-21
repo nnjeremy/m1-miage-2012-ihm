@@ -1,0 +1,17 @@
+<Task_tree_viewer>
+<Task_tree>
+<Task_operator CT_class="InterleavingOperator" id="Parallele_1" name="Parallele 1" configuration="is_optional 0 is_iterative 0">
+  <Task CT_class="Task" id="Tache_1" name="Tache 1" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task CT_class="Task" id="Tache_2" name="Tache 2" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+  <Task CT_class="Task" id="Tache_3" name="Tache 3" configuration="is_optional 0 is_iterative 0" L_concepts=""></Task>
+</Task_operator>
+</Task_tree>
+
+<Task_tree_Presentation>
+  <TK_representation_of_Parallele_1 Move_to="210 45"></TK_representation_of_Parallele_1>
+  <TK_representation_of_Tache_1 Move_to="55 172"></TK_representation_of_Tache_1>
+  <TK_representation_of_Tache_2 Move_to="209 176"></TK_representation_of_Tache_2>
+  <TK_representation_of_Tache_3 Move_to="350 174"></TK_representation_of_Tache_3>
+</Task_tree_Presentation>
+</Task_tree_viewer>
+

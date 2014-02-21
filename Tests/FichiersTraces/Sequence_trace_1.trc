@@ -1,0 +1,39 @@
+ <traces>
+	<!-- Seul la premiere tache doit être disponible -->
+	<assert task="Sequence_1" type="Availability" parameter="1" comment="comment"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="comment"/>
+	<assert task="Tache_2" type="Availability" parameter="0" comment="comment"/>
+    <assert task="Tache_3" type="Availability" parameter="0" comment="comment"/>
+    <action task="Tache_1" operation="set_state_WIP" comment=""/>
+	<assert task="Sequence_1" type="State" parameter="1 WIP" comment="comment"/>
+    <assert task="Tache_1" type="State" parameter="1 WIP" comment="comment"/>
+	<action task="Tache_1" operation="set_state_Done" comment=""/>
+	
+	<!-- La séquence continue : La deuxième tâche devient disponible : La premiere non disponible  -->
+	<assert task="Sequence_1" type="State" parameter="1 WIP" comment="comment"/>
+    <assert task="Tache_1" type="State" parameter="1 Done" comment="comment"/>
+	<assert task="Tache_1" type="Availability" parameter="0" comment="comment"/>
+    <assert task="Tache_2" type="Availability" parameter="1" comment="comment"/>
+    <assert task="Tache_3" type="Availability" parameter="0" comment="comment"/>
+	<action task="Tache_2" operation="set_state_Done" comment=""/>
+	
+	<!-- La séquence continue : La troisième tâche devient disponible : Les deux premières non disponibles  -->
+	<assert task="Sequence_1" type="State" parameter="1 WIP" comment="comment"/>
+    <assert task="Tache_1" type="State" parameter="1 Done" comment="comment"/>
+	<assert task="Tache_2" type="State" parameter="1 Done" comment="comment"/>
+	<assert task="Tache_1" type="Availability" parameter="0" comment="comment"/>
+    <assert task="Tache_2" type="Availability" parameter="0" comment="comment"/>
+    <assert task="Tache_3" type="Availability" parameter="1" comment="comment"/>
+	<action task="Tache_3" operation="set_state_Done" comment=""/>
+	
+	<!-- La séquence se termine et ne peut plus être refaite  -->
+	<assert task="Sequence_1" type="State" parameter="1 Done" comment="comment"/>
+    <assert task="Tache_1" type="State" parameter="1 Done" comment="comment"/>
+	<assert task="Tache_2" type="State" parameter="1 Done" comment="comment"/>
+	<assert task="Tache_3" type="State" parameter="1 Done" comment="comment"/>
+	<assert task="Tache_1" type="Availability" parameter="0" comment="comment"/>
+    <assert task="Tache_2" type="Availability" parameter="0" comment="comment"/>
+    <assert task="Tache_3" type="Availability" parameter="0" comment="comment"/>
+	<assert task="Sequence_1" type="State" parameter="1 Done" comment="comment"/>
+	
+ </traces>

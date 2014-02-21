@@ -1,0 +1,6 @@
+<traces>
+	<action task="task_C" operation="set_state_Done" comment=""/>
+	<action task="task_D" operation="set_state_Done" comment=""/>
+	<action task="task_B" operation="set_state_WIP" comment=""/>
+	<assert task="task_D" type="Availability" parameter="0" comment="comment"/>
+</traces>

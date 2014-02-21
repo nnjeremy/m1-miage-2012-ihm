@@ -1,0 +1,40 @@
+ <traces>
+	<!-- Au commencement, seule la premiere sous-tache doit être disponible -->
+	<assert task="Sequence_1" type="Availability" parameter="1" comment="L'opérateur de séquence est disponible"/>
+	<assert task="Tache_1" type="Availability" parameter="1" comment="La sous-tâche 1 est disponible"/>
+	<assert task="Sequence_2" type="Availability" parameter="0" comment="La séquence 2 sous-tâche de la séquence 1 n'est pas disponible"/>
+    <assert task="Tache_2" type="Availability" parameter="0" comment="La tache 2 n'est pas disponible"/>
+	<assert task="Tache_3" type="Availability" parameter="0" comment="La tache 3 n'est pas disponible"/>
+	
+    <action task="Tache_1" operation="set_state_WIP" comment="La tache 1 est en cours de réalisation"/>
+	<assert task="Sequence_1" type="State" parameter="1 WIP" comment="La sequence 1 est donc aussi en cours de réalisation"/>
+	
+	<action task="Tache_1" operation="set_state_Done" comment="On termine la tache 1"/>
+	<!-- La séquence continue : La deuxième tâche devient disponible : La premiere non disponible  -->
+	<!-- La deuxième tâche étant elle même une séquence : La première tâche de cette séquence DOIT être dispo -->
+	<assert task="Sequence_1" type="State" parameter="1 WIP" comment="La sequence 1 est toujours en cours de réalisation"/>
+	<assert task="Tache_1" type="Availability" parameter="0" comment="La tache 1 n'est plus disponible"/>
+    <assert task="Sequence_2" type="Availability" parameter="1" comment="Sequence 2, sous-tache de Sequence 1 devient disponible"/>
+    <assert task="Tache_2" type="Availability" parameter="1" comment="Tache 2, sous tache de la séquence 2 devient donc aussi disponible"/>
+	<!-- La tache 2 étant optionnelle, les 2 sous-tâches de cette 2eme séquence DOIVENT être disponibles -->
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3 est donc bien disponible"/>
+	
+	<action task="Tache_2" operation="set_state_Done" comment="On termine la tache 2"/>
+	<!-- La 2eme sequence reste en cours de réalisation et seule la 2eme sous-tâche peut etre faite -->
+	<assert task="Sequence_2" type="State" parameter="1 WIP" comment="La sequence 2 reste donc en cours de réalisation"/>
+	<assert task="Tache_2" type="Availability" parameter="0" comment="La tache 2 venant d'être réalisée, n'est donc plus disponible"/>
+	
+	<action task="Tache_3" operation="set_state_Done" comment="On termine la tache 3"/>
+	<!-- Tache 3 iterative: Elle peut être refaite et reste donc dispo -->
+	<assert task="Sequence_2" type="State" parameter="1 WIP" comment="Le sequence 2 reste donc en cours de réalisation"/>
+	<assert task="Tache_3" type="Availability" parameter="1" comment="La tache 3, itérative reste disponible et peut donc etre refaite"/>
+	
+	<!-- Il faut mettre fin explicitement à cette 2eme sequence pour que cette 2eme sous-tache iterative ne puissent pas être refaite -->
+	<action task="Sequence_2" operation="set_state_Done" comment="On termine EXPLICITEMENT la sequence 2"/>
+	<assert task="Tache_3" type="Availability" parameter="0" comment="La tache 3 ne peut donc plus être refaite: elle devient indisponible"/>
+	<assert task="Sequence_2" type="Availability" parameter="0" comment="La sequence 2 est elle aussi indisponible"/>
+	
+	<!-- La tâche mère est finie. Elle n'est plus disponible -->
+	<assert task="Sequence_1" type="State" parameter="1 Done" comment="Toutes les sous-taches de la séquence 1 ont été réalisée. La sequence 1 est donc terminée"/>
+	<assert task="Sequence_1" type="Availability" parameter="0" comment="La séquence 1 devient donc indisponible"/>
+ </traces>
